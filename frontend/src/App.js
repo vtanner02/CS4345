@@ -78,7 +78,7 @@ function App () {
     <div className="App">
       <header className="App-header">
         <button onClick={fetchBase} style={{marginBottom: '1rem'}}> {`GET: http://${url}:8000/`} </button>
-        <button onClick={reset}>Reset DB</button>
+        <button onClick={reset}>{ test["about"] }</button>
         <form onSubmit={handleSubmit}>
           <input type="text" value={number} onChange={handleChange}/>
           <br/>
@@ -88,7 +88,7 @@ function App () {
           { values.map((value, i) => <li key={i}>{value.value}</li>) }
         </ul>
       </header>
-      <p>{ test["about"] }</p>
+      <p>{ test["name"] }</p>
     </div>
   );
 }
