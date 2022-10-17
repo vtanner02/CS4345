@@ -1,4 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import './App.css'
+import Router from './routes.js'
+
+export default function App(){
+  return(
+    <Router/>
+  )
+}
+
+
+
+/*import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { getData } from "./api/test.js"
@@ -93,4 +104,4 @@ function App () {
   );
 }
 
-export default App;
+export default App;*/
