@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 
 api = Flask(__name__)
 CORS(api)
+
 @api.route('/profile')
 def my_profile():
 

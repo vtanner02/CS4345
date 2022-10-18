@@ -12,6 +12,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { getUser } from '../api/users';
+import { useEffect, useState } from 'react';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,13 +31,30 @@ const theme = createTheme();
 
 export default function Login() {
   const navigate = useNavigate();
+  const [ run, setRun ] = useState(false);
+  const [ user, setUser ] = useState(undefined);
+  useEffect(() => {
+    if(run){
+      if(user !== null){
+        sessionStorage.setItem("userId", user.id);
+        window.alert('Set session storage for found user');
+      }  
+    } 
+}, [ user ]);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    if(data.get('email') && data.get('password')){
+        setRun(true);
+        setUser(getUser(data.get('email'), data.get('password')))/*.then(x=> {
+          if(x === 'incorrect user') {
+            setUser(null);
+          } else {
+            setUser(x);
+          }
+        });*/
+    }
+    
   };
 
   return (
