@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { MenuItem, FormControl, InputLabel, Select } from '@mui/material'
 
 function Copyright(props) {
   return (
@@ -97,6 +98,20 @@ export default function Register() {
                   id="password"
                   autoComplete="new-password"
                 />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl>
+                    <InputLabel id="role">Role</InputLabel>
+                    <Select
+                    fullWidth
+                    labelId="role"
+                    type="role"
+                    id="role"
+                    label="Role">
+                    <MenuItem value="professor">Professor</MenuItem>
+                    <MenuItem value="student">Student</MenuItem>
+                    </Select>
+                </FormControl>
               </Grid>
             </Grid>
             <Button
