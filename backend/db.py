@@ -1,6 +1,7 @@
 from getpass import getpass
 from mysql.connector import connect, Error
-db = process.flaskenv
+import os
+db = os.environ
 try:
     with connect(
         host=db['HOST'],
