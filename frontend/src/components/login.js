@@ -33,26 +33,21 @@ export default function Login() {
   const navigate = useNavigate();
   const [ run, setRun ] = useState(false);
   const [ user, setUser ] = useState(undefined);
-  useEffect(() => {
+  /*useEffect(() => {
     if(run){
       if(user !== null){
         sessionStorage.setItem("userId", user.id);
         window.alert('Set session storage for found user');
       }  
     } 
-}, [ user ]);
+}, [ user ]);*/
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if(data.get('email') && data.get('password')){
         setRun(true);
-        setUser(getUser(data.get('email'), data.get('password')))/*.then(x=> {
-          if(x === 'incorrect user') {
-            setUser(null);
-          } else {
-            setUser(x);
-          }
-        });*/
+        getUser(data.get('email'), data.get('password')).then(x=>setUser(x));
+        window.alert(user);
     }
     
   };
