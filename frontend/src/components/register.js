@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { MenuItem, FormControl, InputLabel, Select } from '@mui/material'
-
+import { addUser } from '../api/users'
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -28,16 +29,19 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+
 export default function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    let body = {"u_type": value, "email": data.get('email'), "password":data.get('password'), "first":data.get('firstName'), "last":data.get('lastName')};
+    addUser(body)
   };
+const [value, setValue] = useState('student');
 
+    const handleChange = (e) => {
+    setValue(e.target.value);
+    };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -107,7 +111,7 @@ export default function Register() {
                     labelId="role"
                     type="role"
                     id="role"
-                    label="Role">
+                    label="Role" value={value} onChange={handleChange} >
                     <MenuItem value="professor">Professor</MenuItem>
                     <MenuItem value="student">Student</MenuItem>
                     </Select>

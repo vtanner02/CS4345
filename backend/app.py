@@ -30,7 +30,7 @@ cursor = conn.cursor()
 cursor.execute('show tables')
 for table in cursor:
     print(table)
-@api.route('/user', methods = ["GET", "OPTIONS"])
+@api.route('/user', methods = ["GET", "POST", "OPTIONS"])
 @cross_origin()
 def user_route():
     if request.method == 'GET':
@@ -41,6 +41,22 @@ def user_route():
         cursor.execute(sql, (email,password,))
         response = make_response(jsonify(cursor.fetchall()))
         return response
+    elif request.method == "POST":
+        data = json.loads(request.data)
+        data = data["body"]
+        print(data)
+        email = data['email']
+        password = data['password']
+        first = data['first']
+        print(first)
+        last = data['last']
+        u_type = data['u_type']
+        query = 'insert into users(`first_name`, `last_name`, `password`,`email`, `user_type`) values((%s), (%s), (%s), (%s), (%s))'
+        cursor = conn.cursor()
+        cursor.execute(query, (first, last, password, email, u_type,))
+        response = make_response(jsonify(cursor.fetchall()))
+        return response
+
 
     '''
 @api.route('/user', methods=['GET', 'OPTIONS'])
