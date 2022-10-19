@@ -36,6 +36,7 @@ export default function Register() {
     const data = new FormData(event.currentTarget);
     let body = {"u_type": value, "email": data.get('email'), "password":data.get('password'), "first":data.get('firstName'), "last":data.get('lastName')};
     addUser(body)
+    window.alert('Registered new user successfully')
   };
 const [value, setValue] = useState('student');
 
