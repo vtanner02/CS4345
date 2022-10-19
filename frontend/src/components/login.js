@@ -35,9 +35,9 @@ export default function Login() {
   const [ user, setUser ] = useState(undefined);
   useEffect(() => {
     if(run){
-      if(user !== null){
-        //sessionStorage.setItem("userId", user.id);
-        window.alert(user);
+      if(user){
+        sessionStorage.setItem("userId", user[0]);
+        window.alert(`Logged in ${user}`);
       }  
     } 
 }, [ user ]);
@@ -46,10 +46,14 @@ export default function Login() {
     const data = new FormData(event.currentTarget);
     if(data.get('email') && data.get('password')){
         setRun(true);
-        getUser(data.get('email'), data.get('password')).then(x=>setUser(x[0]));
-    }
-    
-  };
+        getUser(data.get('email'), data.get('password')).then(x=>{
+            if(x[0]) {
+              setUser(x[0]);
+            } else {
+                window.alert('Incorrect login');
+            };
+        })
+  }};
 
   return (
     <ThemeProvider theme={theme}>

@@ -34,10 +34,12 @@ for table in cursor:
 @cross_origin()
 def user_route():
     if request.method == 'GET':
+        email = request.args.get('email')
+        password = request.args.get('password')
         cursor = conn.cursor()
-        cursor.execute('select * from users')
+        sql = 'select * from users where email = (%s) and password = (%s)'
+        cursor.execute(sql, (email,password,))
         response = make_response(jsonify(cursor.fetchall()))
-        #response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
     '''
