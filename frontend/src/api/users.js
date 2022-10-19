@@ -6,7 +6,7 @@ export const getUser = (email,password) => new Promise((resolve, reject) => {
     axios.get(`${apiEndpoint}/user`, {params:{
         'email':email,
     }, crossDomain:true})
-        .then(x => resolve(x))
+        .then(x => resolve(x.data))
         .catch(x => {
             alert(x);
             reject(x);
