@@ -36,8 +36,9 @@ export default function Login() {
   useEffect(() => {
     if(run){
       if(user){
-        sessionStorage.setItem("userId", user[0]);
+        sessionStorage.setItem("user", user);
         window.alert(`Logged in ${user}`);
+        navigate('/dashboard')
       }  
     } 
 }, [ user ]);

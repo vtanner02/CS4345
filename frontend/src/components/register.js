@@ -38,7 +38,7 @@ export default function Register() {
     addUser(body)
     window.alert('Registered new user successfully')
   };
-const [value, setValue] = useState('student');
+const [value, setValue] = useState('Please select');
 
     const handleChange = (e) => {
     setValue(e.target.value);

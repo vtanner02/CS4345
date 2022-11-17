@@ -1,6 +1,8 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import Login from './components/login'
 import Register from './components/register'
+import Dashboard from './components/dashboard'
+import PostJobForm from './components/postjobform';
 export default function Router(){
     return useRoutes([
         {
@@ -8,7 +10,9 @@ export default function Router(){
             children:[
                 { path:'/', element: <Navigate to="/login"/>},
                 { path: 'login', element: <Login />},
-                { path: 'register', element: <Register /> }
+                { path: 'register', element: <Register /> },
+                { path: 'dashboard', element: <Dashboard />},
+                { path: 'postjob', element: <PostJobForm />}
             ]
         },
         
