@@ -17,9 +17,9 @@ User Stories Completed:
 - Register new user
 
 ### Sprint 1 Write Up:
+View design documents to see what patterns were utilized.  
 Four New Functions Added:
 - Dashboard (both student and professor)
 - Logout
 - Professors can submit job postings
 - Students can view all available postings  
-View design documents to see what patterns were utilized.
