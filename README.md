@@ -21,5 +21,5 @@ Four New Functions Added:
 - Dashboard (both student and professor)
 - Logout
 - Professors can submit job postings
-- Students can view all available postings
-View design documents to see what patterns were utiized.
+- Students can view all available postings  
+View design documents to see what patterns were utilized.
