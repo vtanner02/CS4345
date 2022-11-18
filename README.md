@@ -15,3 +15,11 @@ npm start
 User Stories Completed:
 - Login
 - Register new user
+
+### Sprint 1 Write Up:
+Four New Functions Added:
+- Dashboard (both student and professor)
+- Logout
+- Professors can submit job postings
+- Students can view all available postings
+View design documents to see what patterns were utiized.
