@@ -24,7 +24,7 @@ export default function Dashboard(){
             <h1>Welcome, {user[1]}</h1>
             <h4>What would you like to do today?</h4>
             <ul>
-                <li><Link to='/postjob'>Add a TA position to job listings</Link></li>
+                <li><Link to={{pathname:`/postjob/${ user[0] }`}}>Add a TA position to job listings</Link></li>
                 <li><Link to='/viewapps'>View submitted applications for my classes</Link></li>
                 <li onClick = {logout}>Logout</li>
             </ul>
@@ -37,8 +37,8 @@ export default function Dashboard(){
             <h1>Welcome, {user[1]}</h1>
             <h4>What would you like to do today?</h4>
             <ul>
-                <li><Link to='/viewposting'>Browse available postings</Link></li>
-                <li><Link to='/viewapps'>View my submitted applications</Link></li>
+                <li><Link to='/viewapps'>Browse available postings</Link></li>
+                <li><Link to='/viewmyapps'>View my submitted applications</Link></li>
                 <li onClick = {logout}>Logout</li>
             </ul>
             </div>

@@ -5,7 +5,10 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.9",
+    "@mui/base": "^5.0.0-alpha.106",
+    "@mui/lab": "^5.0.0-alpha.108",
+    "@mui/material": "^5.10.14",
+    "@mui/styles": "^5.10.14",
     "axios": "^0.26.1",
     "formik": "^2.2.9",
     "mui": "^0.0.1",

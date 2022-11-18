@@ -57,6 +57,30 @@ def user_route():
         response = make_response(jsonify(cursor.fetchall()))
         return response
 
+@api.route('/postings', methods = ["GET", "POST", "OPTIONS"])
+@cross_origin()
+def postings_route():
+    if request.method == 'GET':
+        cursor = conn.cursor()
+        sql = 'select * from postings'
+        cursor.execute(sql)
+        response = make_response(jsonify(cursor.fetchall()))
+        return response
+    elif request.method == "POST":
+        data = json.loads(request.data)
+        data = data["body"]
+        print(data)
+        title = data['title']
+        num = data['num']
+        prof = data['prof']
+        desc = data['desc']
+        u_id = data['u_id']
+        query = 'insert into postings(`title`, `num`, `prof`,`desc`, `user_id`) values((%s), (%s), (%s), (%s), (%s))'
+        cursor = conn.cursor()
+        cursor.execute(query, (title, num, prof, desc, u_id,))
+        response = make_response(jsonify(cursor.fetchall()))
+        return response
+
 
     '''
 @api.route('/user', methods=['GET', 'OPTIONS'])

@@ -3,6 +3,7 @@ import Login from './components/login'
 import Register from './components/register'
 import Dashboard from './components/dashboard'
 import PostJobForm from './components/postjobform';
+import ViewApps from './components/viewapps';
 export default function Router(){
     return useRoutes([
         {
@@ -12,7 +13,8 @@ export default function Router(){
                 { path: 'login', element: <Login />},
                 { path: 'register', element: <Register /> },
                 { path: 'dashboard', element: <Dashboard />},
-                { path: 'postjob', element: <PostJobForm />}
+                { path: 'postjob/:userID', element: <PostJobForm />},
+                { path: 'viewapps', element: <ViewApps />}
             ]
         },
         
