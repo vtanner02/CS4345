@@ -16,7 +16,7 @@ User Stories Completed:
 - Login
 - Register new user
 
-### Sprint 1 Write Up:
+### Sprint 2 Write Up:
 View design documents to see what patterns were utilized.  
 Four New Functions Added:
 - Dashboard (both student and professor)
